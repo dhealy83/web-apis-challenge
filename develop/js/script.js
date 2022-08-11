@@ -9,7 +9,8 @@ var questions = [
         correctAnswer: "Marathon Bar",
         choices: [
             "Wonka Bar",
-            "Chunky Bar"
+            "Chunky Bar",
+            "OH! Henry"
         ]
     },
     {
@@ -17,7 +18,7 @@ var questions = [
         correctAnswer: "Fairy Floss",
         choices: [
             "Fairy Floss",
-            "Candu Spider Web",
+            "Candy Spider Web",
             "Dental Damage"
         ]
     },
@@ -28,17 +29,22 @@ console.log(questions[0].title);
 var introParagraph = document.querySelector(".intro");
 var letsGo = document.querySelector(".timerStart");
 var currentIndex = 0;
-var  pEl = document.getElementById("q2");
+var  p2El = document.getElementById("q1");
 // console.log(pEl);
 
-function startQuiz(event) {
+
+correctAnswer.setAttribute("style", "display: none")
+
+
+
+function startQuizButton(event) {
     
     letsGo.setAttribute("style", "display: none");
     introParagraph.setAttribute("style", "display: none");
     
 
-    pEl.textContent = questions[0].title;
-    //TODO: How can I present the choices to the user?
+    p2El.textContent = questions[0].title;
+
 
     console.log(letsGo);
     
@@ -56,6 +62,6 @@ function startQuiz(event) {
         }
     }
     
-    letsGo.addEventListener("click", startQuiz);
+    letsGo.addEventListener("click", startQuizButton);
     
     
