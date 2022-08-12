@@ -49,25 +49,6 @@ section {
     margin-bottom: 25pxs;
 }
 
-.correctAnswer {
-    display: block;
-    text-align: center;
-    font-size: 100%;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    
-}
-.incorrectAnswer {
-    display: block;
-    text-align: center;
-    font-size: 100%;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    
-}
-
 .timerStart {
     display: block;
     text-align: center;

@@ -2,6 +2,10 @@ var timeLeft = 5;
     var element = document.querySelector(".timeLeft");
     var secLeft = " seconds left.";
     var letsGo = document.querySelector(".timerStart");
+    var introParagraph = document.querySelector(".intro");
+    var letsGo = document.querySelector(".timerStart");
+    var currentIndex = 0;
+    var p1El = document.getElementById("q1");
     
 var questions = [
     {
@@ -26,14 +30,7 @@ var questions = [
 console.log(questions[0].title);
 
 
-var introParagraph = document.querySelector(".intro");
-var letsGo = document.querySelector(".timerStart");
-var currentIndex = 0;
-var  p2El = document.getElementById("q1");
 // console.log(pEl);
-
-
-correctAnswer.setAttribute("style", "display: none")
 
 
 
@@ -42,10 +39,9 @@ function startQuizButton(event) {
     letsGo.setAttribute("style", "display: none");
     introParagraph.setAttribute("style", "display: none");
     
-
-    p2El.textContent = questions[0].title;
-
-
+    
+    
+    
     console.log(letsGo);
     
     var timerId = setInterval(countdown, 1000);
@@ -53,15 +49,35 @@ function startQuizButton(event) {
         if (timeLeft === 0) {
             alert("Times Up");
             clearInterval(timerId);
-                return;
-            } else {
-                timeLeft--;
+            return;
+        } else {
+            timeLeft--;
             }
             console.log(timeLeft);
             element.textContent = timeLeft + " seconds left.";
         }
+        nextQuestion()
     }
     
+
     letsGo.addEventListener("click", startQuizButton);
     
     
+    function nextQuestion() {
+        //TODO: When I click let's go we call the questions on the quiz. We need to show buttons as well.
+        p1El.textContent = questions[0].title;
+
+        var choiceArray = questions[currentIndex];
+
+        for ( i=0; i < choiceArray.choices.length; i++) {
+            var choiceButton = document.createElement("button");
+            var choice = choiceArray.choices[i];
+            choiceButton.setAttribute("class", ".timerStart");
+            choiceButton.setAttribute("value", choice);
+            choiceButton.textContent = choice;
+            p1El.appendChild(choiceButton);
+        }
+        
+        
+
+    }
