@@ -9,4 +9,11 @@ This is a quiz quiz with a timer. Time is docked for missed answers. You start t
 
 ## URL Directory
 
+- https://dhealy83.github.io/web-apis-challenge/
+
 ## Usage
+
+- When you open the page you are directed to click on the LET'S GO button to start the quiz and the timer.
+- The first question will prompt you to select from one of three answers. Pick an answer. If you are incorrect you will be docked time. If you are correct you will be rewarded points.
+  If you finish in the alloted time you will be able to put you initial in to track your high score.
+- if you do not finish in the time alloted you get an alert telling you that your out of time and you have to start over.
