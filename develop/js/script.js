@@ -1,11 +1,13 @@
 var timeLeft = 5;
-    var element = document.querySelector(".timeLeft");
-    var secLeft = " seconds left.";
-    var letsGo = document.querySelector(".timerStart");
-    var introParagraph = document.querySelector(".intro");
-    var letsGo = document.querySelector(".timerStart");
-    var currentIndex = 0;
-    var p1El = document.getElementById("q1");
+var element = document.querySelector(".timeLeft");
+var secLeft = " seconds left.";
+var letsGo = document.querySelector(".buttons");
+var introParagraph = document.querySelector(".intro");
+var currentIndex = 0;
+var p1El = document.getElementById("q1");
+var p2El = document.getElementById("q2");
+var questionContainer = document.querySelector(".questionContainer")
+
     
 var questions = [
     {
@@ -13,7 +15,7 @@ var questions = [
         correctAnswer: "Marathon Bar",
         choices: [
             "Wonka Bar",
-            "Chunky Bar",
+            "Marathon Bar",
             "OH! Henry"
         ]
     },
@@ -27,23 +29,17 @@ var questions = [
         ]
     },
 ]
-console.log(questions[0].title);
+// console.log(questions[0].title);
 
 
-// console.log(pEl);
-
-
-
-function startQuizButton(event) {
+function startQuizButton() {
     
     letsGo.setAttribute("style", "display: none");
     introParagraph.setAttribute("style", "display: none");
+ 
     
-    
-    
-    
-    console.log(letsGo);
-    
+    // console.log(letsGo);
+//This sets the timer off when you click let's go. It also displays the timer on the page.    
     var timerId = setInterval(countdown, 1000);
     function countdown() {
         if (timeLeft === 0) {
@@ -53,7 +49,7 @@ function startQuizButton(event) {
         } else {
             timeLeft--;
             }
-            console.log(timeLeft);
+            // console.log(timeLeft);
             element.textContent = timeLeft + " seconds left.";
         }
         nextQuestion()
@@ -61,23 +57,30 @@ function startQuizButton(event) {
     
 
     letsGo.addEventListener("click", startQuizButton);
-    
-    
+
+
     function nextQuestion() {
-        //TODO: When I click let's go we call the questions on the quiz. We need to show buttons as well.
-        p1El.textContent = questions[0].title;
+        // p1El.innerHTML = "";
+        letsGo.innerHTML = "";
+        questionContainer.textContent = questions[0].title;
+        var currentQuestion = questions[currentIndex];
+        console.log(currentQuestion);
+        for ( i=0; i < currentQuestion.choices.length; i++) {
+            var choiceOption = currentQuestion.choices[i];
+            var choiceButton= document.createElement("button");
+            // choiceButton.setAttribute("class", "choice-option");
+            choiceButton.setAttribute("value", choiceOption);
+            choiceButton.setAttribute("class", "buttons")
+            choiceButton.textContent = choiceOption;
+            questionContainer.appendChild(choiceButton);
 
-        var choiceArray = questions[currentIndex];
 
-        for ( i=0; i < choiceArray.choices.length; i++) {
-            var choiceButton = document.createElement("button");
-            var choice = choiceArray.choices[i];
-            choiceButton.setAttribute("class", ".timerStart");
-            choiceButton.setAttribute("value", choice);
-            choiceButton.textContent = choice;
-            p1El.appendChild(choiceButton);
+            choiceButton.addEventListener("click", function()
+            {
+                if (this.value == currentQuestion.correctAnswer) {
+                    currentIndex++;
+                    nextQuestion();
+                }
+            })
         }
-        
-        
-
     }

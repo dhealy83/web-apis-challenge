@@ -34,11 +34,11 @@ h2   {
     color: white
 }
 
-#start {
+ .introToQuiz {
     display: block;
     position: relative;
 
-}
+} 
 
 section {
     display: flex;
@@ -49,10 +49,11 @@ section {
     margin-bottom: 25pxs;
 }
 
-.timerStart {
+.buttons {
     display: block;
     text-align: center;
-    font-size: 100%;
+    font-size: 75%;
+    margin-top: 25px;
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
