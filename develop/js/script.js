@@ -7,12 +7,14 @@ var currentIndex = 0;
 var p1El = document.getElementById("q1");
 var p2El = document.getElementById("q2");
 var questionContainer = document.querySelector(".questionContainer")
-
+var score = 0;
+// var quizEnd = 
     
 var questions = [
     {
         title: "What is the Snickers Bar original name?",
         correctAnswer: "Marathon Bar",
+        wrongAnswer: ["Wonka Bar", "OH! Henry"],
         choices: [
             "Wonka Bar",
             "Marathon Bar",
@@ -29,8 +31,6 @@ var questions = [
         ]
     },
 ]
-// console.log(questions[0].title);
-
 
 function startQuizButton() {
     
@@ -62,25 +62,46 @@ function startQuizButton() {
     function nextQuestion() {
         // p1El.innerHTML = "";
         letsGo.innerHTML = "";
-        questionContainer.textContent = questions[0].title;
+
+        questionContainer.innerHTML = "";
+
         var currentQuestion = questions[currentIndex];
+        questionContainer.textContent = currentQuestion.title;
         console.log(currentQuestion);
         for ( i=0; i < currentQuestion.choices.length; i++) {
             var choiceOption = currentQuestion.choices[i];
             var choiceButton= document.createElement("button");
-            // choiceButton.setAttribute("class", "choice-option");
             choiceButton.setAttribute("value", choiceOption);
             choiceButton.setAttribute("class", "buttons")
             choiceButton.textContent = choiceOption;
             questionContainer.appendChild(choiceButton);
 
 
-            choiceButton.addEventListener("click", function()
-            {
-                if (this.value == currentQuestion.correctAnswer) {
+            choiceButton.addEventListener("click", function(){
+                if (this.value === currentQuestion.correctAnswer) {
+                    score += 2
+                    console.log(score);
                     currentIndex++;
                     nextQuestion();
+                }  else {
+                    timeLeft -= 2
+                    nextQuestion()
+                    currentIndex++;
+                }
+                console.log(currentIndex);
+                if ( currentIndex < currentQuestion.length) {
+                        nextQuestion();
+                } else if (
+                    currentIndex == currentQuestion.length || timeLeft <= 0
+                )
+                    {
+                    console.log("Times Up")
                 }
             })
         }
+    }
+
+
+    function quizEnd() {
+        
     }
