@@ -21,22 +21,23 @@ header {
 h1 { 
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     position: relative;
-    padding-left: 20px;
-    color: white
+    color: rgb(0, 0, 0)
 }
 
 h2   {
     display: flex;
     flex-direction:row ;
     position: relative;
-    padding-right: 20px;
-    color: white
+    justify-content: space-around;
+    color: rgb(0, 0, 0)
 }
 
  .introToQuiz {
     display: block;
     position: relative;
+    justify-content: space-around;
 
 } 
 
@@ -60,3 +61,10 @@ section {
 }
 
 
+.stopQuiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    
+}

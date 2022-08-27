@@ -1,52 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./develop/css/reset.css">
-    <link rel="stylesheet" href="./develop/css/style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="./develop/css/reset.css" />
+    <link rel="stylesheet" href="./develop/css/style.css" />
+  </head>
+  <body>
     <header>
-        
-        <h1>View High Score</h1>
-        
-        <h2 class = "timeLeft">60 seconds.</h2>
-        
-    </header>   
-    
-    <section class = introToQuiz>
-        <p class= intro>
-            <Strong>The timer starts when you press the LET'S GO button. Answer the questions as quickly as you can. Time will be docked for wrong answers.</Strong>
-        </p>
+      <h2 class="timeLeft">10 seconds.</h2>
+    </header>
 
-        <div class="questionContainer"> 
-            <div id= "q1">
-            
-            </div>
-        </div>
+    <section class="introToQuiz">
+      <p class="intro">
+        <strong
+          >The timer starts when you press the LET'S GO button. Answer the
+          questions as quickly as you can. Time will be docked for wrong
+          answers.</strong
+        >
+      </p>
 
-        <div>
-            <p id= "q2">
-                
-            </p>
-        </div>
+      <div class="questionContainer">
+        <div id="q1"></div>
+      </div>
 
-        <div class="stopQuiz">
+      <div>
+        <p id="q2"></p>
+      </div>
 
-        </div>
+      <div class="stopQuiz bg-dark"></div>
     </section>
 
-    <button class ="buttons">
-        LET'S GO
-    </button>
+    <button class="buttons">LET'S GO</button>
 
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./develop/js/script.js"></script>
-</body>
+  </body>
 </html>
